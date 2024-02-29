@@ -1,3 +1,10 @@
+if (uploading) {
+    show.style.display= "none "
+    
+} else {
+    show.style.display= "block"
+    
+}
 
 
 const getOut =()=>{
@@ -11,6 +18,7 @@ const upLoad = () =>{
     let uploading = document.getElementById('uploading'); 
     if (uploading) {
         uploading.style.display = 'block';
+        show.style.display= "none "
     } else {
     }
 }
@@ -20,6 +28,8 @@ const openFile = () =>{
     let uploading = document.getElementById('uploading');
     if (uploading) {
         uploading.style.display = 'none';
+        show.style.display= "block "
+
     } else {
         alert("choose file");
     }
@@ -49,7 +59,7 @@ const firebaseConfig = {
  messagingSenderId: "471075009817",
  appId: "1:471075009817:web:3ab20fe1c66727403e4188"
 };
-c
+
 
 
 // Initialize Firebase app
@@ -68,6 +78,7 @@ const submit = () => {
           let filedUser = user.displayName;
           console.log(filedUser);
           console.log("saved");
+          
 
           let storageRef = stref(storage, `${filedUser}/${incomingFile.name}`);
           let task = uploadBytesResumable(storageRef, incomingFile);
@@ -97,8 +108,10 @@ const showUploadedFile = (downloadURL, fileName) => {
   let show = document.getElementById('show');
   if (show) {
       show.innerHTML = `
-          <p>${fileName}</p>
-          <img src="${downloadURL}" alt="${fileName}" />
+      <p>${fileName}</p>
+      <div style="display: flex; justify-content: center;">
+          <img src="${downloadURL}" alt="${fileName}" style="max-width: 100%; max-height: 100%;"/>
+      </div>
       `;
   }
 };
