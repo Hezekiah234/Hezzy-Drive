@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link rel="stylesheet" href="sign up.css">
+ <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+ <div class="col-lg-3 col-8 mx-auto mt-5 border border-1 "  style="border-radius: 12px;" >
+
+  <form class="form">
+    <p class="title">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+        <label>
+            <input class="input" type="text" id="firstname" placeholder="" required="">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input class="input" type="text" id="lastname" placeholder="" required="">
+            <span>Lastname</span>
+        </label>
+    </div>  
+            
+    <label>
+        <input class="email" type="email" id="email" placeholder="" required="">
+        <span>Email</span>
+    </label> 
+        
+    <label>
+        <input class="password" type="password" id="password" placeholder="" required="">
+        <span>Password</span>
+    </label>
+    <label>
+        <input class="input" type="password" id="confirmPassword" placeholder="" required="">
+        <span>Confirm password</span>
+    </label>
+    <button class="submit" onclick="submitAll()">Submit</button>
+    <p class="signin">Already have an account? <a href="#">Log in</a> </p>
+</form>
+ </div>
+ <script type="module" src="sign.js"></script>
+<!-- 
+ < type="module" >
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyABS4-wBHV7dZchI1gUwC3J2fbZ_VTQ6Xo",
+    authDomain: "new-pro-fe4f4.firebaseapp.com",
+    projectId: "new-pro-fe4f4",
+    storageBucket: "new-pro-fe4f4.appspot.com",
+    messagingSenderId: "471075009817",
+    appId: "1:471075009817:web:3ab20fe1c66727403e4188"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const submitAll = () => {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Optional: Perform input validation, e.g., check if passwords match
+    if (password !== confirmPassword) {
+      console.error("Passwords do not match.");
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user) {
+          // <a href="log in.html">Go to Login Page</a>
+          window.location.href = "log in.html";
+          console.log("Successfully registered.");
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Registration error:", errorCode, errorMessage);
+      });
+  }
+
+  window.submitAll = submitAll; -->
+
+</body>
+</html>
